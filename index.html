@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TECHCARE - Home</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" href="glow.png" type="image/png" />
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+/* === Ocean 3D Background === */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #e0f7fa;
+  background: linear-gradient(to top, #001f3f, #0074d9);
+  overflow-x: hidden;
+  position: relative;
+}
+.ocean { position: fixed; bottom: 0; left: 0; width: 100%; height: 100%; z-index: -2; overflow: hidden; }
+.wave { position: absolute; bottom: 0; width: 200%; height: 200px; background: rgba(255,255,255,0.1); border-radius: 43%; animation: waveAnimation 6s infinite linear; }
+.wave:nth-child(2) { bottom: 10px; animation: waveAnimation 8s infinite linear; opacity: 0.2; }
+.wave:nth-child(3) { bottom: 15px; animation: waveAnimation 10s infinite linear; opacity: 0.15; }
+@keyframes waveAnimation { 0% { transform: translateX(0) translateY(0) rotate(0deg);} 50% { transform: translateX(-25%) translateY(10px) rotate(1deg);} 100% { transform: translateX(-50%) translateY(0) rotate(0deg);} }
+
+/* === Header === */
+header { text-align: center; padding: 15px; }
+header h1 { color: #e0f7fa; text-shadow: 1px 1px 3px #00000080; }
+
+/* === Language Buttons === */
+.language-selector button { margin:5px; padding:8px 12px; border:none; border-radius:5px; background: rgba(255,255,255,0.2); color:#e0f7fa; cursor:pointer; text-shadow: 1px 1px 2px #00000050; }
+.language-selector button:hover { background: rgba(255,255,255,0.35); }
+
+/* === Menu Button === */
+#menuButton { margin-top:10px; padding:8px 15px; border:none; border-radius:5px; background: rgba(255,255,255,0.2); color:#e0f7fa; cursor:pointer; text-shadow:1px 1px 2px #000; font-weight:bold; }
+#menuButton:hover { background: rgba(255,255,255,0.35); }
+
+/* === Menu Items === */
+#menu { display:none; margin-top:10px; text-align:center; }
+#menu a { display:block; padding:10px; margin:5px 0; background: rgba(255,255,255,0.15); color:#e0f7fa; text-decoration:none; border-radius:8px; transition: 0.3s; box-shadow:0 0 8px rgba(0,255,255,0.3); }
+#menu a:hover { background: rgba(255,255,255,0.3); color:#ffffff; transform: translateY(-2px); }
+
+/* === FAQ Section === */
+.faq-item button { width:100%; text-align:left; padding:10px; margin:5px 0; background: rgba(255,255,255,0.15); border:none; border-radius:5px; color:#81d4fa; cursor:pointer; font-weight:bold; text-shadow:1px 1px 2px #000; }
+.faq-answer { padding:10px; margin:5px 0 15px 0; background: rgba(255,255,255,0.05); border-radius:5px; color:#e0f7fa; }
+
+/* === Feature Cards === */
+.feature-card, .other-feature-card {
+  background: rgba(255,255,255,0.15);
+  border-radius:15px;
+  padding:15px;
+  margin:10px;
+  text-align:center;
+  cursor:pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color:#e0f7fa;
+  text-shadow:1px 1px 2px #000;
+}
+.feature-card:hover, .other-feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,255,255,0.4);
+}
+
+/* === Footer === */
+footer { text-align:center; padding:10px; background: rgba(0,0,0,0.2); color:#e0f7fa; text-shadow:1px 1px 2px #000; }
+</style>
+</head>
+<body>
+<!-- Ocean Background -->
+<div class="ocean"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div>
+
+<header>
+<h1 id="title">TECHCARE</h1>
+
+<nav>
+  <a href="help.html" id="helpLink">Help</a> |
+  <a href="contacts.html" id="contactsLink">Contacts</a>
+</nav>
+
+<div class="language-selector">
+  <button onclick="changeLanguage('si')">සිංහල</button>
+  <button onclick="changeLanguage('en')">English</button>
+  <button onclick="changeLanguage('ta')">தமிழ்</button>
+</div>
+
+<!-- Menu Button with AI Features -->
+<button id="menuButton">Menu</button>
+<nav id="menu">
+  <a href="https://chat.openai.com/" target="_blank"><i class="fas fa-robot" style="margin-right:8px;"></i> ChatGPT</a>
+  <a href="https://www.deepseek.com/" target="_blank"><i class="fas fa-search" style="margin-right:8px;"></i> DeepSeek</a>
+  <a href="https://gemini.google.com/" target="_blank"><i class="fas fa-gem" style="margin-right:8px;"></i> Gemini</a>
+  <a href="https://facebook.com/techcare" target="_blank"><i class="fab fa-facebook" style="margin-right:8px;"></i> Facebook Page</a>
+</nav>
+</header>
+
+<main>
+<h2 id="welcomeMsg">Welcome to TECHCARE!</h2>
+<p id="intro">Explore our various features and services.</p>
+
+<section class="faq">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item">
+  <button class="faq-question">How do I contact support?</button>
+  <div class="faq-answer" style="display:none;">You can contact us via WhatsApp, Messenger, or our contact form.</div>
+</div>
+<div class="faq-item">
+  <button class="faq-question">Is TECHCARE free?</button>
+  <div class="faq-answer" style="display:none;">Some TECHCARE features are free, but certain advanced services may require payment.</div>
+</div>
+</section>
+
+<section class="features">
+<a href="https://web.whatsapp.com/" target="_blank"><div class="feature-card"><h3>Chat Support</h3><p>Connect instantly via WhatsApp.</p></div></a>
+<a href="https://maps.google.com" target="_blank"><div class="feature-card"><h3>Find Locations</h3><p>Locate services on Google Maps.</p></div></a>
+<a href="https://www.health.gov.lk" target="_blank"><div class="feature-card"><h3>Health Tools</h3><p>Check hospitals and clinics.</p></div></a>
+<a href="https://translate.google.com" target="_blank"><div class="feature-card"><h3>Multilingual Support</h3><p>Translate pages and content.</p></div></a>
+</section>
+
+<section class="other-features">
+<h2>Other Features</h2>
+<div class="other-feature-list">
+<a href="https://www.srilankahospital.lk/appointments" target="_blank">
+  <div class="other-feature-card">
+    <i class="fas fa-calendar-check fa-2x" style="color:#81d4fa"></i>
+    <h3>Book Appointment</h3>
+    <p>Schedule a visit at Sri Lankan hospitals online.</p>
+  </div>
+</a>
+<a href="https://www.healthline.com/health" target="_blank">
+  <div class="other-feature-card">
+    <i class="fas fa-lightbulb fa-2x" style="color:#81d4fa"></i>
+    <h3>Health Tips</h3>
+    <p>Daily health advice and wellness tips.</p>
+  </div>
+</a>
+<a href="https://www.who.int/publications" target="_blank">
+  <div class="other-feature-card">
+    <i class="fas fa-file-download fa-2x" style="color:#81d4fa"></i>
+    <h3>Downloads</h3>
+    <p>Official guides and resources from WHO.</p>
+  </div>
+</a>
+</div>
+</section>
+
+</main>
+
+<footer>
+<p>© 2025 TECHCARE. All rights reserved.</p>
+</footer>
+
+<script>
+// FAQ toggle
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('active');
+    const answer = btn.nextElementSibling;
+    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+  });
+});
+
+// Menu toggle
+document.getElementById('menuButton').addEventListener('click', () => {
+  const menu = document.getElementById('menu');
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+});
+
+// Language translations
+const translations = {
+  en: { title:"TECHCARE", welcomeMsg:"Welcome to TECHCARE!", intro:"Explore our various features and services." },
+  si: { title:"ටෙක්කෙයාර්", welcomeMsg:"TECHCARE වෙත ඔබ සාදරයෙන් පිළිගනිමු!", intro:"අපගේ විවිධ විශේෂාංග සහ සේවා සෙවීම." },
+  ta: { title:"டெக் கேர்", welcomeMsg:"TECHCARE க்கு வரவேற்கின்றோம்!", intro:"எங்கள் பல்வேறு அம்சங்கள் மற்றும் சேவைகளை ஆராயுங்கள்." }
+};
+function changeLanguage(lang){
+  const selected = translations[lang];
+  if(!selected) return;
+  for(const key in selected){
+    const el = document.getElementById(key);
+    if(el) el.textContent = selected[key];
+  }
+  localStorage.setItem('techcareLang', lang);
+}
+window.onload = () => {
+  const savedLang = localStorage.getItem('techcareLang') || 'en';
+  changeLanguage(savedLang);
+};
+</script>
+</body>
+</html>

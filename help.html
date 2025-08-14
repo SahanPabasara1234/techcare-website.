@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TECHCARE - Help</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <a href="index.html" class="back-home-btn" title="Back to Home">
+  🏠
+</a>
+
+  <header>
+    <h1 id="title">TECHCARE</h1>
+    <nav>
+      <a href="index.html" id="homeLink">Home</a> |
+      <a href="help.html" id="helpLink">Help</a> |
+      <a href="contacts.html" id="contactsLink">Contacts</a>
+    </nav>
+    <div class="language-selector">
+      <button onclick="changeLanguage('si')">සිංහල</button>
+      <button onclick="changeLanguage('en')">English</button>
+      <button onclick="changeLanguage('ta')">தமிழ்</button>
+    </div>
+  </header>
+
+  <main>
+    <h2 id="helpTitle">How to Use</h2>
+    <section class="features">
+      <div class="feature-card" data-feature="whatsapp">
+        <h3>WhatsApp</h3>
+        <p>Chat with support or send messages instantly.</p>
+      </div>
+      <div class="feature-card" data-feature="facebook">
+        <h3>Facebook</h3>
+        <p>Connect with us on Facebook for updates and support.</p>
+      </div>
+      <div class="feature-card" data-feature="telegram">
+        <h3>Telegram</h3>
+        <p>Join our Telegram channel for news and help.</p>
+      </div>
+      <div class="feature-card" data-feature="maps">
+        <h3>Google Maps</h3>
+        <p>Find locations and directions easily.</p>
+      </div>
+      <div class="feature-card" data-feature="ai">
+        <h3>AI Features</h3>
+        <p>Use AI tools for health checks and information.</p>
+      </div>
+      <div class="feature-card" data-feature="bank">
+        <h3>Bank Apps</h3>
+        <p>Access your bank's online services securely.</p>
+      </div>
+      <div class="feature-card" data-feature="gov">
+        <h3>Government Sites</h3>
+        <p>Visit official government websites for services.</p>
+      </div>
+      <div class="feature-card" data-feature="youtube">
+        <h3>YouTube</h3>
+        <p>Watch tutorials and guides on our YouTube channel.</p>
+      </div>
+    </section>
+
+    <!-- Modal for feature help -->
+    <div id="featureModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
+      <div style="background:#fff; padding:2em; max-width:400px; margin:auto; border-radius:8px; position:relative;">
+        <button id="closeModal" style="position:absolute; top:10px; right:10px;">&times;</button>
+        <h3 id="modalTitle"></h3>
+        <p id="modalHelp"></p>
+        <a id="modalLink" href="#" target="_blank" style="color:#007bff; text-decoration:underline;">Go to website</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 TECHCARE. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        title: "TECHCARE",
+        homeLink: "Home",
+        helpLink: "Help",
+        contactsLink: "Contacts",
+        helpTitle: "How to Use"
+      },
+      si: {
+        title: "ටෙක්කෙයාර්",
+        homeLink: "මුල් පිටුව",
+        helpLink: "උදව්",
+        contactsLink: "සම්බන්ධතා",
+        helpTitle: "කෙසේ භාවිතා කරන්නේද"
+      },
+      ta: {
+        title: "டெக் கேர்",
+        homeLink: "முகப்பு",
+        helpLink: "உதவி",
+        contactsLink: "தொடர்பு",
+        helpTitle: "எப்படி பயன்படுத்துவது"
+      }
+    };
+
+    const featureHelp = {
+      whatsapp: {
+        en: {
+          title: "WhatsApp",
+          help: "Install WhatsApp from your app store. Open the app, search for TECHCARE, and start chatting. Or click below to open WhatsApp Web.",
+          link: "https://wa.me/"
+        },
+        si: {
+          title: "වට්ස්ඇප්",
+          help: "ඔබේ යෙදුම් වෙළඳසැලෙන් WhatsApp ස්ථාපනය කරන්න. යෙදුම විවෘත කර TECHCARE සොයන්න සහ කතාබස් ආරම්භ කරන්න. හෝ පහත ලින්ක් එකෙන් WhatsApp Web විවෘත කරන්න.",
+          link: "https://wa.me/"
+        },
+        ta: {
+          title: "வாட்ஸ்அப்",
+          help: "உங்கள் செயலி கடையில் இருந்து WhatsApp ஐ நிறுவவும். செயலியைத் திறந்து TECHCARE ஐ தேடி அரட்டை தொடங்கவும். அல்லது கீழே உள்ள இணைப்பை கிளிக் செய்து WhatsApp Web ஐ திறக்கவும்.",
+          link: "https://wa.me/"
+        }
+      },
+      facebook: {
+        en: {
+          title: "Facebook",
+          help: "Go to our Facebook page for updates and support. Log in if required.",
+          link: "https://facebook.com"
+        },
+        si: {
+          title: "ෆේස්බුක්",
+          help: "අපගේ Facebook පිටුවට පිවිසීමෙන් යාවත්කාලීන කිරීම් සහ සහාය ලබා ගන්න. අවශ්‍ය නම් පුරනය වන්න.",
+          link: "https://facebook.com"
+        },
+        ta: {
+          title: "ஃபேஸ்புக்",
+          help: "எங்கள் Facebook பக்கத்திற்கு சென்று புதுப்பிப்புகள் மற்றும் ஆதரவைப் பெறுங்கள். தேவையானால் உள்நுழையவும்.",
+          link: "https://facebook.com"
+        }
+      },
+      telegram: {
+        en: {
+          title: "Telegram",
+          help: "Install Telegram and join our channel for news and help. Click below to open Telegram.",
+          link: "https://telegram.org"
+        },
+        si: {
+          title: "ටෙලිග්‍රෑම්",
+          help: "Telegram ස්ථාපනය කර අපගේ නාලිකාවට එකතු වන්න. පුවත් සහ උදව් සඳහා. පහත ලින්ක් එකෙන් Telegram විවෘත කරන්න.",
+          link: "https://telegram.org"
+        },
+        ta: {
+          title: "டெலிகிராம்",
+          help: "Telegram ஐ நிறுவி எங்கள் சேனலில் சேரவும். செய்திகளுக்கும் உதவிக்கும். கீழே உள்ள இணைப்பை கிளிக் செய்து Telegram ஐ திறக்கவும்.",
+          link: "https://telegram.org"
+        }
+      },
+      maps: {
+        en: {
+          title: "Google Maps",
+          help: "Open Google Maps, allow location access, and search for services near you.",
+          link: "https://maps.google.com"
+        },
+        si: {
+          title: "ගූගල් සිතියම්",
+          help: "Google Maps විවෘත කර ස්ථානයට ප්‍රවේශය ලබා දෙන්න. ඔබට ආසන්න සේවා සොයන්න.",
+          link: "https://maps.google.com"
+        },
+        ta: {
+          title: "கூகுள் வரைபடங்கள்",
+          help: "Google Maps ஐ திறந்து இட அனுமதியை வழங்கவும். அருகிலுள்ள சேவைகளைத் தேடவும்.",
+          link: "https://maps.google.com"
+        }
+      },
+      ai: {
+        en: {
+          title: "AI Features",
+          help: "Access AI tools from the TECHCARE menu. Follow on-screen instructions for health checks and information.",
+          link: "#"
+        },
+        si: {
+          title: "AI විශේෂාංග",
+          help: "TECHCARE මෙනුවෙන් AI මෙවලම් වෙත පිවිසෙන්න. සෞඛ්‍ය පරීක්ෂා සහ තොරතුරු සඳහා උපදෙස් අනුගමනය කරන්න.",
+          link: "#"
+        },
+        ta: {
+          title: "AI அம்சங்கள்",
+          help: "TECHCARE பட்டியலில் இருந்து AI கருவிகளை அணுகவும். சுகாதாரச் சோதனைகளுக்கும் தகவல்களுக்கும் வழிகாட்டுதல்களை பின்பற்றவும்.",
+          link: "#"
+        }
+      },
+      bank: {
+        en: {
+          title: "Bank Apps",
+          help: "Download your bank's official app from the app store. Log in securely to access services.",
+          link: "#"
+        },
+        si: {
+          title: "බැංකු යෙදුම්",
+          help: "ඔබේ බැංකුවේ නිල යෙදුම යෙදුම් වෙළඳසැලෙන් බාගන්න. ආරක්ෂිතව පුරනය වී සේවා භාවිතා කරන්න.",
+          link: "#"
+        },
+        ta: {
+          title: "வங்கி பயன்பாடுகள்",
+          help: "உங்கள் வங்கியின் அதிகாரப்பூர்வ பயன்பாட்டை செயலி கடையில் இருந்து பதிவிறக்கவும். பாதுகாப்பாக உள்நுழைந்து சேவைகளைப் பயன்படுத்தவும்.",
+          link: "#"
+        }
+      },
+      gov: {
+        en: {
+          title: "Government Sites",
+          help: "Visit official government websites for services. Always check the URL for authenticity.",
+          link: "#"
+        },
+        si: {
+          title: "රජයේ අඩවි",
+          help: "සේවා සඳහා නිල රජයේ වෙබ් අඩවි වෙත පිවිසෙන්න. සත්‍යතාවය සඳහා URL පරීක්ෂා කරන්න.",
+          link: "#"
+        },
+        ta: {
+          title: "அரசுத் தளங்கள்",
+          help: "சேவைகளுக்காக அதிகாரப்பூர்வ அரசுத் தளங்களைப் பார்வையிடவும். உண்மைத்தன்மையை உறுதிப்படுத்த URL ஐ சரிபார்க்கவும்.",
+          link: "#"
+        }
+      },
+      youtube: {
+        en: {
+          title: "YouTube",
+          help: "Go to our YouTube channel for video guides and tutorials.",
+          link: "https://youtube.com"
+        },
+        si: {
+          title: "යූටියුබ්",
+          help: "අපගේ YouTube නාලිකාවට පිවිස වීඩියෝ මාර්ගෝපදේශ සහ උපදෙස් බලන්න.",
+          link: "https://youtube.com"
+        },
+        ta: {
+          title: "யூடியூப்",
+          help: "எங்கள் YouTube சேனலைப் பார்வையிட்டு வீடியோ வழிகாட்டிகள் மற்றும் பயிற்சிகளைப் பெறுங்கள்.",
+          link: "https://youtube.com"
+        }
+      }
+    };
+
+    let currentLang = localStorage.getItem('techcareLang') || 'en';
+
+    document.querySelectorAll('.feature-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const feature = card.getAttribute('data-feature');
+        const help = featureHelp[feature][currentLang] || featureHelp[feature]['en'];
+        document.getElementById('modalTitle').textContent = help.title;
+        document.getElementById('modalHelp').textContent = help.help;
+        document.getElementById('modalLink').href = help.link;
+        document.getElementById('featureModal').style.display = 'flex';
+      });
+    });
+
+    document.getElementById('closeModal').onclick = function() {
+      document.getElementById('featureModal').style.display = 'none';
+    };
+
+    function changeLanguage(lang) {
+      currentLang = lang;
+      const selected = translations[lang];
+      if (!selected) return;
+      for (const key in selected) {
+        const el = document.getElementById(key);
+        if (el) el.textContent = selected[key];
+      }
+      localStorage.setItem('techcareLang', lang);
+    }
+
+    window.onload = () => {
+      const savedLang = localStorage.getItem('techcareLang') || 'en';
+      changeLanguage(savedLang);
+    };
+  </script>
+</body>
+</html>
