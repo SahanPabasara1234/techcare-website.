@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - TECHCARE</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #f4f8fb;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0074d9;
+      color: #fff;
+      padding: 2rem 0 1rem 0;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 80vh;
+      padding: 2rem 0;
+    }
+    .contact-section {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      padding: 2.5rem 2rem 2rem 2rem;
+      max-width: 400px;
+      width: 100%;
+      margin: 0 1rem;
+      animation: fadeIn 1s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .contact-section h2 {
+      color: #0074d9;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+    form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #333;
+      font-weight: 500;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      font-size: 1rem;
+      background: #f9fbfc;
+      transition: border 0.2s;
+    }
+    form input:focus, form textarea:focus {
+      border: 1.5px solid #0074d9;
+      outline: none;
+      background: #fff;
+    }
+    button[type="submit"] {
+      background: linear-gradient(90deg, #0074d9 60%, #00b8d9 100%);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.9rem 2.2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      transition: background 0.2s, transform 0.1s;
+      margin-top: 0.5rem;
+      display: block;
+      width: 100%;
+    }
+    button[type="submit"]:hover {
+      background: linear-gradient(90deg, #005fa3 60%, #0099a9 100%);
+      transform: translateY(-2px) scale(1.02);
+    }
+    .contact-info {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: #555;
+      font-size: 1rem;
+    }
+    .contact-info a {
+      color: #0074d9;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      transition: color 0.2s;
+    }
+    .contact-info a:hover {
+      color: #005fa3;
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      main {
+        padding: 1rem 0;
+      }
+      .contact-section {
+        padding: 1.2rem 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-home-btn" title="Back to Home">
+  🏠
+</a>
+
+  <header>
+    <h1>Contact TECHCARE</h1>
+  </header>
+  <main>
+    <section class="contact-section">
+      <h2>Get in Touch</h2>
+      <form action="#" method="post" autocomplete="off">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Your Name">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="you@email.com">
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+      <div class="contact-info">
+        <p>Or reach us via:</p>
+        <a href="mailto:info@techcare.lk">Email</a> |
+        <a href="https://wa.me/94771234567" target="_blank">WhatsApp</a> |
+        <a href="https://facebook.com/techcare" target="_blank">Facebook</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 TECHCARE. All rights reserved.</p>
+  </footer>
+</body>
+</html>
